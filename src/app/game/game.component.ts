@@ -83,7 +83,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // URL d'un fichier Rive public pour l'exemple
   // private riveUrl = 'https://cdn.rive.app/animations/vehicles.riv';
-  private riveUrl = './le_titube.riv';
+  private riveUrl = 'le_titube.riv';
 
   ngOnInit() {
     // Ajout du listener pour le redimensionnement
