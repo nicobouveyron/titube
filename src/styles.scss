@@ -1,1 +1,119 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+// Définition de la palette de couleurs personnalisée
+$primary-palette: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,  // Couleur principale orange
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+// Création du thème
+$theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($primary-palette),
+    accent: mat.define-palette(mat.$pink-palette),
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Application du thème
+@include mat.all-component-themes($theme);
+
+// Styles Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
+html{
+    background-color: #414141;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+body{
+    background-color: #f3f3f3;
+    height: 100vh;
+    width: 100vw;
+
+    max-width: 700px;
+    background-color: #FAF4E4;
+}
+
+// Style global pour toutes les dialogues Material
+.mdc-dialog {
+  .mdc-dialog__container {
+    @apply fixed inset-0 flex items-center justify-center;
+  }
+
+  .mdc-dialog__surface {
+    background: transparent !important;
+    box-shadow: none !important;
+    // max-width: 100vw !important;
+    // max-height: 100vh !important;
+    // width: 100%;
+    // height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mdc-dialog__content {
+    padding: 0 !important;
+    margin: 0;
+    background: transparent;
+  }
+}
+
+// Style commun pour le contenu des dialogues
+.dialog-content {
+  @apply fixed inset-0 bg-black/50 flex items-center justify-center;
+  // width: 100vw;
+  // height: 100vh;
+}
+
+.dialog-container {
+  @apply bg-white w-full h-full md:w-[500px] md:h-auto md:rounded-2xl p-8 flex flex-col gap-6;
+}
+
+.dialog-title {
+  @apply text-2xl font-bold;
+}
+
+.dialog-actions {
+  @apply flex justify-end gap-4 mt-auto;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 70pt);
+}
+
+router-outlet ~ * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

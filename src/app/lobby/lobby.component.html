@@ -1,0 +1,29 @@
+<div class="container relative flex flex-col">
+  <h1 class="text-4xl font-bold pl-10">Qui participe ?</h1>
+  <div class="flex flex-col gap-4">
+    <div class="max-h-[60vh] overflow-y-auto">
+      <div appAutoAnimate class="flex flex-col gap-4">
+        @for (participant of participants(); track participant) {
+        <app-list-item [name]="participant" [index]="$index"></app-list-item>
+        }
+      </div>
+    </div>
+
+    <div class="flex items-center cursor-pointer" (click)="addParticipant()">
+      <button
+        class="rounded-xl w-[60pt] h-[60pt] text-3xl bg-orange-500 text-white mx-2"
+      >
+        +
+      </button>
+      <span>Ajouter un participant</span>
+    </div>
+  </div>
+</div>
+<div class="absolute bottom-0 flex justify-center w-full">
+  <button
+    class="rounded-lg py-2 px-4 h-[70pt] w-[80%] text-white bg-orange-500 text-3xl my-5"
+    routerLink="/game"
+  >
+    Commencer la partie
+  </button>
+</div>
