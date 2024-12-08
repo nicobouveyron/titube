@@ -51,7 +51,7 @@ import { Card } from '../../../store/game.store';
       </div>
 
       <div
-        class="absolute bottom-0 left-0 h-[25vw] w-[25vw] max-h-[500px] max-w-[500px] rounded-full  -translate-x-[15%] translate-y-[15%] opacity-20 z-10"
+        class="absolute bottom-0 left-0 h-[25vw] w-[25vw] min-w-[300pt] min-h-[300pt] max-h-[500px] max-w-[500px] rounded-full  -translate-x-[15%] translate-y-[15%] opacity-20 z-10"
         [class]="backgrounds[card().theme || 0]"
       ></div>
     </div>
