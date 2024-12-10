@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1733861242998,
+  "timestamp": 1733861703098,
   "index": "/titube/index.html",
   "assetGroups": [
     {
@@ -108,7 +108,7 @@
     "/titube/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "/titube/index.html": "ce2f3a5589082db91d68bb2a839cd8a94cfcdf94",
     "/titube/main-BLQ3PPRQ.js": "ecb006d39089b28fec0f1f79d0b76205f161bcc3",
-    "/titube/manifest.webmanifest": "ae75d88bcba231532b1d323a588a58c4ffb32109",
+    "/titube/manifest.webmanifest": "56f265b738bb794049771d9bb9a29809f840f123",
     "/titube/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
     "/titube/styles-ZRPTD6ZT.css": "3a426aa59bdfccbae7c64c2dbd47860e1d18e62d",
     "/titube/titetes/10b-titete.png": "e5f217ec35e5b533b75f4654d1d65ebecb6d741f",
