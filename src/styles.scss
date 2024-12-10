@@ -1,6 +1,22 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
+@font-face {
+  font-family: 'geo'; // Le nom que vous utiliserez dans votre CSS
+  src: url('/fonts/GeogrotesqueCyr-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: 'geo' !important;
+}
+
+
+*{
+  font-family: 'GeoGtq';
+}
+
 // Définition de la palette de couleurs personnalisée
 $primary-palette: (
   50: #fff3e0,
@@ -47,19 +63,18 @@ $theme: mat.define-light-theme((
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
-html{
-    background-color: #414141;
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
+// html{
+//     background-color: #414141;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center
+// }
 
 body{
     background-color: #f3f3f3;
-    height: 100vh;
-    width: 100vw;
+    height: 100svh;
+    width: 100svw;
 
-    max-width: 700px;
     background-color: #FAF4E4;
 }
 
@@ -109,11 +124,18 @@ body{
 main {
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - 70pt);
+  min-height: calc(90svh - 70pt);
 }
 
 router-outlet ~ * {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+* {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
