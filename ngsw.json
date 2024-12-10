@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1733860933612,
+  "timestamp": 1733861242998,
   "index": "/titube/index.html",
   "assetGroups": [
     {
@@ -21,7 +21,7 @@
         "/titube/chunk-VWM3UOL5.js",
         "/titube/favicon.ico",
         "/titube/index.html",
-        "/titube/main-W4BO7FNA.js",
+        "/titube/main-BLQ3PPRQ.js",
         "/titube/manifest.webmanifest",
         "/titube/polyfills-FFHMD2TL.js",
         "/titube/styles-ZRPTD6ZT.css"
@@ -106,9 +106,9 @@
     "/titube/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "/titube/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/titube/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/titube/index.html": "ceb0f9e155416f7ec375353f08109b2e1e5c4f38",
-    "/titube/main-W4BO7FNA.js": "80efd1a2f4367df8a9be418981f63f909f69ab4b",
-    "/titube/manifest.webmanifest": "7a95d4a724ad57be45a9d3f5214a79c8f19dbb5b",
+    "/titube/index.html": "ce2f3a5589082db91d68bb2a839cd8a94cfcdf94",
+    "/titube/main-BLQ3PPRQ.js": "ecb006d39089b28fec0f1f79d0b76205f161bcc3",
+    "/titube/manifest.webmanifest": "ae75d88bcba231532b1d323a588a58c4ffb32109",
     "/titube/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
     "/titube/styles-ZRPTD6ZT.css": "3a426aa59bdfccbae7c64c2dbd47860e1d18e62d",
     "/titube/titetes/10b-titete.png": "e5f217ec35e5b533b75f4654d1d65ebecb6d741f",
