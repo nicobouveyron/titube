@@ -1,6 +1,6 @@
 {
-    "name": "Mon Application",
-    "short_name": "MonApp",
+    "name": "Le Titube",
+    "short_name": "titube",
     "theme_color": "#1976d2",
     "background_color": "#fafafa",
     "display": "standalone",
@@ -8,7 +8,7 @@
     "start_url": "./",
     "icons": [
       {
-        "src": "assets/icons/icon-72x72.png",
+        "src": "titou/logo.png",
         "sizes": "72x72",
         "type": "image/png"
       }
