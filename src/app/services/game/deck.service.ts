@@ -1,11 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Card } from '../../store/game.store';
+import { inject, Injectable } from '@angular/core';
+import { Card, GameStore } from '../../store/game.store';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DeckService {
+  readonly #store = inject(GameStore);
+
   constructor() {}
+
+  getNextCardIndex(): number {
+    return Math.floor(Math.random() * this.#store.cards().length);
+  }
 }
 
 export const DECK: Card[] = [

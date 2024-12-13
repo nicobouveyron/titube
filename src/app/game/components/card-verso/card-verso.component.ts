@@ -1,15 +1,14 @@
-// power-card.component.ts
-import { Component, computed, input, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, computed, Input, input } from '@angular/core';
 import { Card } from '../../../store/game.store';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-card-verso',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div
-      class="w-full h-full bg-white rounded-3xl relative overflow-hidden p-4 shadow-lg border-4"
+      class="flex items-center justify-center w-full h-full bg-white rounded-3xl relative overflow-hidden p-4 shadow-lg border-4"
       [class]="borders[card().theme || 0]"
     >
       <!-- Lettre en haut à gauche -->
@@ -28,13 +27,8 @@ import { Card } from '../../../store/game.store';
         {{ card().value }}
       </div>
 
-      <!-- Zone de contenu principal - espace réservé pour l'image -->
-      <div class="w-full h-3/5 mt-20  relative z-20">
-        <ng-content></ng-content>
-      </div>
-
       <!-- Texte du bas -->
-      <div class="absolute bottom-6 left-6 right-6 z-20">
+      <div>
         <h2
           class=" text-3xl text-center font-bold leading-tight"
           [class]="texts[card().theme || 0]"
@@ -49,16 +43,11 @@ import { Card } from '../../../store/game.store';
           }
         </ul>
       </div>
-
-      <div
-        class="absolute bottom-0 left-0 h-[25vw] w-[25vw] min-w-[300pt] min-h-[300pt] max-h-[500px] max-w-[500px] rounded-full  -translate-x-[15%] translate-y-[15%] opacity-20 z-10"
-        [class]="backgrounds[card().theme || 0]"
-      ></div>
     </div>
   `,
-  styleUrls: ['./card.component.scss'],
+  styleUrl: './card-verso.component.scss',
 })
-export class CardComponent {
+export class CardVersoComponent {
   @Input() letter: string = 'R';
   @Input() title: string = 'Pouvoir : Roi du regard';
 

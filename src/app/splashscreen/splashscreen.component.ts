@@ -69,7 +69,7 @@ export class SplashScreenComponent implements AfterViewInit {
           autoplay: true,
           artboard: 'logo',
           onLoad: () => {
-            console.log('Rive file loaded!');
+            console.log('Rive file loaded!', this.riveInstance?.contents);
             console.log(this.riveInstance?.contents.artboards);
           },
           onLoadError: (error) => {

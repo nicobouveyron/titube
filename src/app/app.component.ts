@@ -5,12 +5,20 @@ import { slideInAnimation } from './shared/animations/route-animations';
 import { SplashScreenComponent } from './splashscreen/splashscreen.component';
 import { filter } from 'rxjs';
 import { NgIf } from '@angular/common';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SplashScreenComponent, NgIf],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    SplashScreenComponent,
+    NgIf,
+    LoaderComponent,
+  ],
   template: `
+    <app-loader></app-loader>
     <app-splash-screen *ngIf="showSplash"></app-splash-screen>
     <app-header></app-header>
     <main

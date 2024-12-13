@@ -2,6 +2,7 @@ import {
   Component,
   effect,
   EventEmitter,
+  input,
   Output,
   output,
   signal,
@@ -44,6 +45,9 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class AddListItemComponent {
   username = signal('');
+  clear = input(() => {
+    this.username.set('');
+  });
   @Output() usernameChange = new EventEmitter<string>();
 
   constructor() {

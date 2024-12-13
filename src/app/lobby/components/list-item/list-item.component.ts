@@ -1,10 +1,12 @@
 import { Component, input, inject } from '@angular/core';
 import { ParticipantsStore } from '../../../store/participants.store';
+import { LucideAngularModule } from 'lucide-angular';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-list-item',
   standalone: true,
-  imports: [],
+  imports: [LucideAngularModule, MatTooltipModule],
   template: `
     <div
       class="flex justify-between items-center p-4 bg-white rounded-xl m-2 shadow-sm"
@@ -14,10 +16,11 @@ import { ParticipantsStore } from '../../../store/participants.store';
         <span class="text-xl font-bold text-black">{{ name() }}</span>
       </div>
       <button
+        matTooltip="Supprimer le participant"
         (click)="removeParticipant()"
         class="p-2 text-xl text-black hover:opacity-70 transition-opacity"
       >
-        ✕
+        <lucide-icon name="square-x"></lucide-icon>
       </button>
     </div>
   `,
