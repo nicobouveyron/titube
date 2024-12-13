@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1734131362054,
+  "timestamp": 1734131956758,
   "index": "/titube/index.html",
   "assetGroups": [
     {
@@ -14,7 +14,7 @@
         "/titube/chunk-3SVJM6SM.js",
         "/titube/chunk-75J22X7U.js",
         "/titube/chunk-BHLRCM6T.js",
-        "/titube/chunk-D3P7UGPA.js",
+        "/titube/chunk-BSKT7TYR.js",
         "/titube/chunk-DILD3EYX.js",
         "/titube/chunk-FNSXWPPW.js",
         "/titube/chunk-SDEXOTTS.js",
@@ -22,10 +22,10 @@
         "/titube/chunk-ZY3BIGMW.js",
         "/titube/favicon.ico",
         "/titube/index.html",
-        "/titube/main-QPWP3H4Z.js",
+        "/titube/main-V3YD3VOK.js",
         "/titube/manifest.webmanifest",
         "/titube/polyfills-FFHMD2TL.js",
-        "/titube/styles-AIM5MVR5.css"
+        "/titube/styles-ZOHRWX4F.css"
       ],
       "patterns": []
     },
@@ -92,7 +92,7 @@
     "/titube/chunk-3SVJM6SM.js": "0af09f7975f6d0999b38e206f0b29a55ee02917b",
     "/titube/chunk-75J22X7U.js": "ab3890482d83c6a85090eaa40c92afe7a41c70a6",
     "/titube/chunk-BHLRCM6T.js": "88fa24835452e5dce7167a70d8fbbba627d84a2b",
-    "/titube/chunk-D3P7UGPA.js": "00e56ae2cea7e79d84cc37247b395d49d5d390b1",
+    "/titube/chunk-BSKT7TYR.js": "7e8b804a4d711eef33479dfe9d7f60da2d2f6fa4",
     "/titube/chunk-DILD3EYX.js": "d34653aa8b7dd78cb8b3907fe1139c175f69e7aa",
     "/titube/chunk-FNSXWPPW.js": "c3c27eba61c1bcec6a1998bfed4a08172ce5f6d3",
     "/titube/chunk-SDEXOTTS.js": "aabcf79ffcef6223dc0d6af202128e3c1cd11f83",
@@ -108,11 +108,11 @@
     "/titube/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "/titube/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/titube/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/titube/index.html": "42121c88ce0c151fb2b4ec7fd1483fba317c0a8d",
-    "/titube/main-QPWP3H4Z.js": "fafd6e7c8ed589575e3b6477f7542e3a1c7fe0eb",
+    "/titube/index.html": "1c535e155fcc0c82f9b7a32bcaa7cc3ee7eb927f",
+    "/titube/main-V3YD3VOK.js": "5fff2c64eb5879c668b89549bfdb500ab18673de",
     "/titube/manifest.webmanifest": "1c7769d883daefeffb9c0469dc93b77ff57a60fd",
     "/titube/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/titube/styles-AIM5MVR5.css": "b99f54208081e4494a272408b6776c6b5d2d9907",
+    "/titube/styles-ZOHRWX4F.css": "d88b0f2e12b56b7c32bff19a5acb36beddc2cd25",
     "/titube/titetes/10b-titete.png": "e5f217ec35e5b533b75f4654d1d65ebecb6d741f",
     "/titube/titetes/10g-titete.png": "6a255694bcd4b69c8db733b41a585c25871ed02b",
     "/titube/titetes/10p-titete.png": "9c21457777253db751b85a3bfda2790cf6fa3b8d",
