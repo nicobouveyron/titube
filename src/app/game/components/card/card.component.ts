@@ -34,20 +34,20 @@ import { Card } from '../../../store/game.store';
       </div>
 
       <!-- Texte du bas -->
-      <div class="absolute bottom-6 left-6 right-6 z-20">
+      <div class="absolute bottom-[20px] z-20">
         <h2
           class=" text-3xl text-center font-bold leading-tight"
           [class]="texts[card().theme || 0]"
         >
           {{ card().title }}
         </h2>
-        <ul>
+        <!-- <ul>
           @for (rule of rules(); track rule.index) {
           <li class="text-center text-xl leading-tight">
             {{ rule.rule }}
           </li>
           }
-        </ul>
+        </ul> -->
       </div>
 
       <div

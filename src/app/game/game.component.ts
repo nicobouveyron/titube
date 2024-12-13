@@ -138,9 +138,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     // On attend que la vue soit initialisée
-    setTimeout(() => {
-      this.loadRiveAnimation();
-    });
+    this.loadRiveAnimation();
   }
 
   ngOnDestroy() {

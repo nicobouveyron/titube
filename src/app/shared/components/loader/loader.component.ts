@@ -22,6 +22,9 @@ import { Rive } from '@rive-app/canvas';
   `,
   styles: [
     `
+      canvas {
+        max-width: 300pt;
+      }
       p {
         font-size: 18pt;
         color: white;
