@@ -1,14 +1,14 @@
 {
   "name": "LeTitube",
   "short_name": "Titube",
-  "theme_color": "#1976d2",
+  "theme_color": "#FAF4E4",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
   "icons": [
     {
-      "src": "titou/logo.png",
+      "src": "titou/tete.png",
       "sizes": "72x72",
       "type": "image/png"
     }
