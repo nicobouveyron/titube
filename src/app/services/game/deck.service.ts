@@ -12,6 +12,55 @@ export class DeckService {
   getNextCardIndex(): number {
     return Math.floor(Math.random() * this.#store.cards().length);
   }
+  /**
+   * Extrait les valeurs uniques des cartes et les trie
+   * @param deck Tableau de cartes
+   * @returns Tableau de valeurs uniques triées
+   */
+  getUniqueCardValues(deck: Card[]): string[] {
+    // Utilise Set pour obtenir des valeurs uniques
+    const uniqueValues = new Set(deck.map((card) => card.value));
+
+    // Convertit le Set en tableau et trie les valeurs
+    const sortedValues = Array.from(uniqueValues).sort((a, b) => {
+      // Ordre personnalisé : A, nombres, V, D, R
+      const order: { [key: string]: number } = {
+        A: 1,
+        V: 11,
+        D: 12,
+        R: 13,
+      };
+
+      // Si les deux valeurs sont des nombres
+      if (!isNaN(Number(a)) && !isNaN(Number(b))) {
+        return Number(a) - Number(b);
+      }
+
+      // Si une des valeurs est spéciale, utilise l'ordre personnalisé
+      const orderA = order[a] || Number(a);
+      const orderB = order[b] || Number(b);
+
+      return orderA - orderB;
+    });
+
+    return sortedValues;
+  }
+
+  /**
+   * Filtre les cartes du deck par valeur
+   * @param value Valeur de la carte à filtrer
+   * @param deck Tableau de toutes les cartes
+   * @returns Tableau des cartes filtrées
+   */
+  filterCardsByValue(value: string | null, deck: Card[]): Card[] {
+    // Si aucune valeur n'est sélectionnée, retourne tout le deck
+    if (!value) {
+      return deck;
+    }
+
+    // Filtre les cartes qui correspondent à la valeur
+    return deck.filter((card) => card.value === value);
+  }
 }
 
 export const DECK: Card[] = [
@@ -65,7 +114,9 @@ export const DECK: Card[] = [
     value: '7',
     rive: '7b-titete.png',
     title: 'Pouvoir : Roi du pouce',
-    rules: ['Le dernier à mettre le pouce sur son front a perdu et boit'],
+    rules: [
+      'Tu deviens le roi du pouce, le dernier à mettre le pouce sur son front a perdu et boit',
+    ],
     theme: 0,
   },
   {
@@ -95,7 +146,7 @@ export const DECK: Card[] = [
     value: 'V',
     rive: '4-Titou-Carton',
     title: 'Alcooliques anonymes',
-    rules: ['Règle : plus le droit de dire nom prénom'],
+    rules: ['Plus le droit de dire nom prénom'],
     theme: 0,
   },
   {
@@ -165,7 +216,9 @@ export const DECK: Card[] = [
     value: '7',
     rive: '7y-titete.png',
     title: 'Pouvoir : Roi du pouce',
-    rules: ['Le dernier à mettre le pouce sur son front a perdu et boit'],
+    rules: [
+      'Tu deviens le roi du pouce, le dernier à mettre le pouce sur son front a perdu et boit',
+    ],
     theme: 1,
   },
   {
@@ -195,7 +248,7 @@ export const DECK: Card[] = [
     value: 'V',
     rive: '9-Titou-Viking',
     title: 'Ni oui ni non',
-    rules: ['Règle : plus le droit de dire oui et non'],
+    rules: ['Plus le droit de dire oui et non'],
     theme: 1,
   },
   {
@@ -210,7 +263,7 @@ export const DECK: Card[] = [
   },
   {
     value: 'R',
-    rive: '7-Titou-Kebab',
+    rive: '7-Titou-Kebab_tourne',
     title: 'Roi du regard',
     rules: ["Si quelqu'un te regarde, il/elle boit"],
     theme: 1,
@@ -265,7 +318,9 @@ export const DECK: Card[] = [
     value: '7',
     rive: '7g-titete.png',
     title: 'Pouvoir : Roi du pouce',
-    rules: ['Le dernier à mettre le pouce sur son front a perdu et boit'],
+    rules: [
+      'Tu deviens le roi du pouce, le dernier à mettre le pouce sur son front a perdu et boit',
+    ],
     theme: 2,
   },
   {
@@ -295,7 +350,7 @@ export const DECK: Card[] = [
     value: 'V',
     rive: '2-Titou-Shrek',
     title: 'Restons fleuris',
-    rules: ['Règle : plus le droit à toute sorte de politesse'],
+    rules: ['Plus le droit à toute sorte de politesse'],
     theme: 2,
   },
   {
@@ -317,7 +372,7 @@ export const DECK: Card[] = [
   },
   {
     value: 'A',
-    rive: '8-Titou-Pompom-Girl',
+    rive: '8-Titou-PomPomGirl',
     title: 'Shi-fu-shot',
     rules: ["Shi-fu-mi avec quelqu'un, le perdant boit"],
     theme: 3,
@@ -365,7 +420,9 @@ export const DECK: Card[] = [
     value: '7',
     rive: '7p-titete.png',
     title: 'Pouvoir : Roi du pouce',
-    rules: ['Le dernier à mettre le pouce sur son front a perdu et boit'],
+    rules: [
+      'Tu deviens le roi du pouce, le dernier à mettre le pouce sur son front a perdu et boit',
+    ],
     theme: 3,
   },
   {
@@ -395,7 +452,7 @@ export const DECK: Card[] = [
     value: 'V',
     rive: '13-Titou-Alchimiste',
     title: 'Chercheur mixologue',
-    rules: ['Règle : invente une nouvelle règle'],
+    rules: ['Invente une nouvelle règle'],
     theme: 3,
   },
   {

@@ -24,4 +24,12 @@ export const routes: Routes = [
       import('./game/game.component').then((m) => m.GameComponent),
     data: { animation: 'game' },
   },
+  {
+    path: 'rules',
+    loadComponent: () =>
+      import('./rules/rules-view/rules-view.component').then(
+        (m) => m.RulesViewComponent
+      ),
+    data: { animation: 'rules' },
+  },
 ];

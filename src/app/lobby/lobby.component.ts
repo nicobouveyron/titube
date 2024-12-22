@@ -69,6 +69,6 @@ export class LobbyComponent {
       );
       this.#loaderService.hide();
       this.#router.navigate(['game']);
-    }, 32500);
+    }, 3000);
   }
 }

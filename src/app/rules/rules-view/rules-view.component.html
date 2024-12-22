@@ -1,0 +1,43 @@
+<div class="flex justify-center">
+  <ul class="flex gap-2 overflow-auto p-5">
+    @for (card of filter; track $index) {
+    <li
+      (click)="onClickValue(card)"
+      class="bg-white text-black shadow-md rounded-lg px-4 py-1 min-w-[60pt] text-[16pt] cursor-pointer min-h-[60pt] flex items-center justify-center"
+      [ngClass]="{ 'bg-orange-400': value() === card }"
+    >
+      {{ card }}
+    </li>
+    }
+  </ul>
+</div>
+
+<div class="max-h-[70svh] px-5 overflow-auto mt-5">
+  <mat-accordion class="flex flex-col gap-2">
+    @for (card of cards(); track $index) {
+
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header class="h-[90pt]">
+        <mat-panel-title class="text-[20pt] flex gap-4">
+          <span class="text-orange-500">{{ card.value }}.</span>
+          <span>{{ card.title }}</span>
+          <img *ngIf="!isRive(card)" src="titetes/{{ card.rive }}" />
+          <canvas
+            *ngIf="isRive(card)"
+            [id]="'riveCanvas_' + $index"
+            #riveCanvas
+          ></canvas>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul>
+        @for (rule of card.rules; track $index) {
+        <li class="text-[16pt] my-2 leading-tight">
+          <span class="text-orange-500">Règle {{ $index + 1 }} :</span>
+          {{ rule }}
+        </li>
+        }
+      </ul>
+    </mat-expansion-panel>
+    }
+  </mat-accordion>
+</div>

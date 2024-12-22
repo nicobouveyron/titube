@@ -34,7 +34,7 @@ import { Card } from '../../../store/game.store';
       </div>
 
       <!-- Texte du bas -->
-      <div class="absolute bottom-[20px] z-20">
+      <div class="absolute bottom-[20px] z-20 w-full left-0">
         <h2
           class=" text-3xl text-center font-bold leading-tight"
           [class]="texts[card().theme || 0]"

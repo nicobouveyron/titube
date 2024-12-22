@@ -9,7 +9,7 @@ import {
   AfterViewInit,
   signal,
 } from '@angular/core';
-import { Rive } from '@rive-app/canvas';
+import { Alignment, Fit, Layout, Rive } from '@rive-app/canvas';
 import { CardComponent } from './components/card/card.component';
 import { Card, GameStore } from '../store/game.store';
 import { ParticipantsStore } from '../store/participants.store';
@@ -37,15 +37,22 @@ import { DeckService } from '../services/game/deck.service';
           [ngClass]="{ 'rotate-y-180': isVerso() }"
         >
           <!-- Face avant -->
-          <div class="absolute w-full h-full backface-hidden">
+          <div
+            [ngClass]="{ 'opacity-0': isVerso() }"
+            class="absolute w-full h-full backface-hidden duration-300"
+          >
             <app-card [card]="card" class="block w-full h-full">
-              <canvas id="riveCanvas" #riveCanvas></canvas>
               @if (!game().isRive) {
               <img
                 class="absolute top-0 bottom-0 left-0 right-0 m-auto"
                 src="titetes/{{ card.rive }}"
               />
               }
+              <canvas
+                id="riveCanvas"
+                #riveCanvas
+                [ngClass]="{ invisible: !game().isRive }"
+              ></canvas>
             </app-card>
           </div>
 
@@ -93,6 +100,8 @@ import { DeckService } from '../services/game/deck.service';
       }
       .backface-hidden {
         backface-visibility: hidden;
+        justify-content: center;
+        display: flex;
       }
       .rotate-y-180 {
         transform: rotateY(180deg);
@@ -138,6 +147,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     // On attend que la vue soit initialisée
+    this.initRenderer();
     this.loadRiveAnimation();
   }
 
@@ -147,28 +157,43 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   riveInstance: Rive | null = null;
-  async loadRiveAnimation(animation?: string) {
+  initRenderer() {
     if (this.canvas) {
       try {
+        const canvas = this.canvas.nativeElement;
+
+        // Définir les dimensions du canvas
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+
+        const layout = new Layout({
+          fit: Fit.Contain,
+          alignment: Alignment.Center,
+        });
         // Initialisation de Rive avec le canvas
         this.riveInstance = new Rive({
-          canvas: this.canvas.nativeElement,
+          canvas: canvas,
           src: this.riveUrl,
           autoplay: true,
           artboard: 'lesTitous',
-          onLoad: () => {
-            if (animation) {
-              this.riveInstance?.play(animation);
-            }
-          },
+          layout: layout,
+
+          onLoad: () => {},
         });
-        this.riveInstance.resizeToCanvas();
-        this.riveInstance.resizeDrawingSurfaceToCanvas();
-        console.log(this.riveInstance);
       } catch (error) {
         console.error("Erreur lors du chargement de l'animation Rive:", error);
       }
     }
+  }
+
+  async loadRiveAnimation(animation?: string) {
+    if (!this.riveInstance) {
+      return;
+    }
+
+    this.riveInstance.play(animation);
+    this.riveInstance.resizeToCanvas();
+    this.riveInstance.resizeDrawingSurfaceToCanvas(5);
   }
 
   onResize() {
@@ -186,6 +211,10 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   changeAnimation() {
+    if (this.#store.cards().length === 0) {
+      this.#store.reset();
+    }
+
     this.isVerso.set(false);
     const cardIndex = this.#deckService.getNextCardIndex();
 
@@ -202,8 +231,6 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     // * Dispatch events
     this.#store.addCarteOut(this.#store.cards()[cardIndex]);
     this.#store.setCurrentPlayer(participants[nextPlayerIndex]);
-
-    console.log(this.game());
 
     if (this.riveInstance && this.game().isRive) {
       console.log({

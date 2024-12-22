@@ -1,0 +1,25 @@
+::ng-deep{
+    .mat-expansion-panel-header{
+        height: 80pt!important;
+    }
+}
+
+img{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    right: -30px;
+    opacity: .4;
+    transform: rotate(-10deg);
+}
+
+
+canvas {
+    width: 90px;  // Ajustez selon vos besoins
+    height: 90px; // Ajustez selon vos besoins
+
+    position: absolute;
+    right: -40px;
+    opacity: .6;
+    transform: rotate(-10deg);
+  }
