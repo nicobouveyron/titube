@@ -148,7 +148,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     // On attend que la vue soit initialisée
     this.initRenderer();
-    this.loadRiveAnimation();
+    this.loadRiveAnimation(this.game().isRive ? this.card?.rive : undefined);
   }
 
   ngOnDestroy() {
@@ -166,17 +166,16 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        const layout = new Layout({
-          fit: Fit.Contain,
-          alignment: Alignment.Center,
-        });
         // Initialisation de Rive avec le canvas
         this.riveInstance = new Rive({
           canvas: canvas,
           src: this.riveUrl,
           autoplay: true,
           artboard: 'lesTitous',
-          layout: layout,
+          layout: new Layout({
+            fit: Fit.Contain,
+            alignment: Alignment.Center,
+          }),
 
           onLoad: () => {},
         });
@@ -192,8 +191,8 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     this.riveInstance.play(animation);
-    this.riveInstance.resizeToCanvas();
-    this.riveInstance.resizeDrawingSurfaceToCanvas(5);
+    // this.riveInstance.resizeToCanvas();
+    // this.riveInstance.resizeDrawingSurfaceToCanvas();
   }
 
   onResize() {

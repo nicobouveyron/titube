@@ -1,25 +1,23 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
-import { AutoAnimateDirective } from '../shared/directives/auto-animate.directive';
-import { ParticipantsStore } from '../store/participants.store';
-import { AddListItemComponent } from './components/add-list-item/add-list-item.component';
-import { ListItemComponent } from './components/list-item/list-item.component';
+import { DeckService } from '../services/game/deck.service';
 import { LoaderService } from '../services/loader.service';
 import { GameStore } from '../store/game.store';
-import { DeckService } from '../services/game/deck.service';
+import { ParticipantsStore } from '../store/participants.store';
+import { ListParticipantsComponent } from './components/list-participants/list-participants.component';
 
 @Component({
   selector: 'app-lobby',
   standalone: true,
   imports: [
-    ListItemComponent,
-    AutoAnimateDirective,
-    AddListItemComponent,
     LucideAngularModule,
     MatTooltipModule,
+    MatButtonModule,
+    ListParticipantsComponent,
   ],
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.scss'],
@@ -32,9 +30,6 @@ export class LobbyComponent {
   readonly store = inject(ParticipantsStore);
   readonly gameStore = inject(GameStore);
   readonly dialog = inject(MatDialog);
-
-  username = '';
-  clear = signal(true);
 
   participants = this.store.usernames;
 
@@ -52,12 +47,6 @@ export class LobbyComponent {
       ],
     },
   };
-
-  async addParticipant() {
-    if (this.username) {
-      this.store.addParticipant(this.username);
-    }
-  }
 
   startGame() {
     this.#loaderService.show();

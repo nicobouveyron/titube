@@ -1,0 +1,33 @@
+<h1 class="text-center text-4xl text-orange-500">Paramètres de la partie</h1>
+<div class="flex flex-col gap-2 items-center justify-center h-full p-5">
+  <button
+    (click)="onResumeGame()"
+    class="w-full max-w-[300px] border border-solid border-orange-500 rounded-lg py-2"
+  >
+    <span> Reprendre la partie </span>
+  </button>
+  <button
+    (click)="onShowPlayersList()"
+    class="w-full max-w-[300px] border border-solid border-orange-500 rounded-lg py-2"
+  >
+    <span> Listes joueurs </span>
+  </button>
+  <button
+    (click)="onShowCardsList()"
+    class="w-full max-w-[300px] border border-solid border-orange-500 rounded-lg py-2"
+  >
+    <span> Liste des cartes </span>
+  </button>
+  <button
+    (click)="onRestartGame()"
+    class="w-full max-w-[300px] border border-solid border-orange-500 rounded-lg py-2"
+  >
+    <span> Relancer une partie </span>
+  </button>
+  <button
+    (click)="onLeaveGame()"
+    class="w-full max-w-[300px] border border-solid border-orange-500 rounded-lg py-2"
+  >
+    <span> Quitter la partie </span>
+  </button>
+</div>

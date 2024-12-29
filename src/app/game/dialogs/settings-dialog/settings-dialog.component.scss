@@ -1,0 +1,47 @@
+  button {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #c26b3b, #e88c5e);
+    border: none;
+    border-radius: 8px;
+    color: #FAF4E4;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+    }
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(194, 107, 59, 0.4);
+  
+      &::before {
+        animation: shine 1s;
+      }
+    }
+  
+    @keyframes shine {
+      0% {
+        left: -50%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+  }
